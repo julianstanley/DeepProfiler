@@ -1,3 +1,4 @@
+import gc
 import os
 
 import tensorflow as tf
@@ -12,7 +13,7 @@ import deepprofiler.imaging.cropping
 #################################################
 
 def learn_model(config, dset, epoch):
-
+    gc.collect()
     # Create cropping graph
     crop_graph = tf.Graph()
     with crop_graph.as_default():
